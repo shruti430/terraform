@@ -1,0 +1,21 @@
+# Ignore system files
+AppData/
+Temp/
+*.tmp
+
+# Ignore Terraform state files and directories
+.terraform/
+*.tfstate
+*.tfstate.d/
+
+# Ignore local IDE and OS-specific files
+.vscode/
+.idea/
+*.log
+
+# Ignore ssh keys
+.ssh/
+
+# Ignore other unnecessary files and directories
+*.zip
+
