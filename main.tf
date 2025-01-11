@@ -1,13 +1,16 @@
 provider "aws" {
-  region = "eu-west-3"
+  region = "us-east-1" # Replace with your preferred AWS region
 }
 
-module "eks" {
-  source          = "./modules/eks"
-  cluster_name    = "example"
-  vpc_id          = var.vpc_id
-  subnet_ids      = var.subnet_ids
-  cluster_version = "1.31"
-  instance_type   = "t2.medium"
+resource "aws_instance" "example" {
+  ami           = "ami-0e2c8caa4b6378d8c" # Replace with an appropriate AMI ID for your region
+  instance_type = "t2.micro"             # Free tier eligible instance type
+
+  tags = {
+    Name = "ExampleInstance"
+  }
+
+  # Optional: Add a security group for SSH access
+  security_groups = ["default"] # Ensure a security group with SSH rules exists
 }
 
